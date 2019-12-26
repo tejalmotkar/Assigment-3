@@ -76,9 +76,19 @@ $(document).ready(function() {
     $("#description").val("");
   }
 
+function RedirectifUserNameNull()
+{
+  if(sessionStorage.getItem("firstName").val() == null)
+  {
+    window.location.href = '/index.html';
+  }
+}
+
+
   $("#detail-tab").click(function () {
     $("#detailtab").removeClass("hide");
     $("#home").addClass("hide");
+    $("#NewRequestButton").addClass("hide");
     $("#home-tab-li").removeClass("active");
     $("#detail-tab-li").addClass("active");
     if($("#detailsTable tr").length == 1) {
@@ -93,6 +103,7 @@ $(document).ready(function() {
       $("#home").removeClass("hide");
       $("#home-tab-li").addClass("active");
       $("#detail-tab-li").removeClass("active");
+      $("#NewRequestButton").removeClass("hide");
   });
 
 });

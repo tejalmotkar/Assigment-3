@@ -84,7 +84,7 @@ $(document).ready(function() {
     }
 
      if(!(email.val().toLowerCase() === sessionStorage.getItem("userName") && password.val() ===  sessionStorage.getItem("password"))) {
-       setErrorMessage("Invalid username and password.", errorMessageId, "");
+       setErrorMessage("Invalid username and password. Please Sign up first.", errorMessageId, "");
        return false;
     }
 
