@@ -52,6 +52,7 @@ $(document).ready(function() {
     sessionStorage.setItem("lastName", lastName.val().trim());
     sessionStorage.setItem("userName", email.val().trim());
     sessionStorage.setItem("password", password.val().trim());
+    sessionStorage.setItem("SuccessfulLogin", "false");
     event.preventDefault();
   });
 
