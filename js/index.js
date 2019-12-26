@@ -65,6 +65,7 @@ $(document).ready(function() {
   });
 
   $(".login-form").click(function(event) {
+    sessionStorage.setItem("SuccessfulLogin", "false");
     var password = $("#login-password");
     var email = $("#login-email");
     var errorMessageId = "#login-error-message";
@@ -83,12 +84,17 @@ $(document).ready(function() {
       return false;
     }
 
+    if(sessionStorage.getItem("userName") == null) {
+      setErrorMessage("Please Sign up first.", errorMessageId, "");
+      return false;
+   }
      if(!(email.val().toLowerCase() === sessionStorage.getItem("userName") && password.val() ===  sessionStorage.getItem("password"))) {
-       setErrorMessage("Invalid username and password. Please Sign up first.", errorMessageId, "");
+       setErrorMessage("Invalid username and password.", errorMessageId, "");
        return false;
     }
 
-    //$('#navbar').load('./navbar.html');
+    sessionStorage.setItem("SuccessfulLogin", "true");
+    
 
   });
 

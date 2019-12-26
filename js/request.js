@@ -76,13 +76,6 @@ $(document).ready(function() {
     $("#description").val("");
   }
 
-function RedirectifUserNameNull()
-{
-  if(sessionStorage.getItem("firstName").val() == null)
-  {
-    window.location.href = '/index.html';
-  }
-}
 
 
   $("#detail-tab").click(function () {

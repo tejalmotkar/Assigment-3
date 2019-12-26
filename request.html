@@ -24,7 +24,7 @@
 <script>
     function setUserName() {
         var userName = sessionStorage.getItem("firstName") + " " + sessionStorage.getItem("lastName");
-        if(userName == 'null null')
+        if(userName == 'null null' || sessionStorage.getItem("SuccessfulLogin") == "false")
         {
             window.location.href = './index.html';
         }
