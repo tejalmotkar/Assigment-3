@@ -1,141 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="">
+    <title>Helpdesk Software</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/index.css" />
-    <script src="./js/request.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <script src="./js/index.js"></script>
     <style type="text/css">
-        .footer-copyrights {
-            background-color: #efefef;
-            text-align: center;
-        }
+      .footer-copyrights {
+  			background-color: #efefef;
+  			padding: 10px;
+  			margin-top: 10px;
+        text-align: center;
+  		}
+      .full-width {
+        width: 100%;
+      }
+      h1, h2, h3, h4, h5 h6 {
+        font-family: "Open-sans";
+      }
     </style>
 </head>
-<script>
-    function setUserName() {
-        var userName = sessionStorage.getItem("firstName") + " " + sessionStorage.getItem("lastName");
-        $("#userName").text(userName);
-    }
-</script>
 
-<body onload="setUserName()">
-    <header>
-            <div style="background-image:url('./images/bg-2.jpg'); min-height: 100px; text-align: center; background-size: cover;">
-                <div>
-                    <h3 style="color: #fff;float: right;padding-right: 10px;;"> Welcome <span style="text-align: right;" id="userName">UserName</span></h3>
-                </div>
-              </div>
-        <section>
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <ul class="nav navbar-nav">
-                        <li class="active" id="home-tab-li"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                                role="tab" aria-controls="home" aria-selected="true">Request</a></li>
-                        <li id="detail-tab-li"><a class="nav-link" id="detail-tab" data-toggle="tab" href="#"
-                            role="tab" aria-controls="detailtab" aria-selected="true">Details Tab</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <button class="btn btn-primary new-request-btn" data-toggle="modal" style="height: 53px;">+New Request</button>
-                    </ul>                   
-                </div>
-            </nav>
-        </section>
-        <div class="tab-pane fade in active" style="min-height: 500px; margin-top: 20px;" id="home" role="tabpanel"
-            aria-labelledby="home-tab">
-            <h3>My Request Details</h3>
-            <table id="Requesttable" class="table table-striped request-table hide">
-                <thead>
-                    <tr>
-                        <th>Subject</th>
-                        <th>Created Date</th>
-                        <th>DueBy Date</th>
-                        <th>Requester Name</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+<body class="full-width" data-lang="en" style="">
+  <header>
+    <div class="" style="background-image:url('./images/bg-2.jpg'); min-height: 200px; text-align: center; background-size: cover;">
+      <nav class="nav container" style="text-align: right;">
+        <div>
+          <a class="btn btn-primary btn-md button-margin" data-toggle="modal" id="signup-btn">Sign up</a>
+          <a class="btn btn-primary btn-md button-margin" data-toggle="modal" id="login-btn">Login</a>
         </div>
-        <div class="tab-pane fade in active hide"  style="min-height: 500px; margin-top: 10px;" id="detailtab" role="tabpanel"
-        aria-labelledby="detail-tab">
-        <h3>Details</h3>
-        <table id="detailsTable" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email ID</th>
-                   
-                </tr>
-            </thead>
-            <tbody>
-                             
-            </tbody>
-        </table>
+      </nav>
+      <div class="container">
+        <h1>Free Helpdesk Software, for life!</h1>
+        <p class="sub-text">One Place to Manage All Your IT Support. Help Desk offers all the essentials in one place including: a powerful ticket management tool, IT asset management, password reset, industry benchmarking, and more.</p>
+      </div>
     </div>
-    </header>
-    <section>
-        <!-- The Modal -->
-        <div class="modal fade" id="new-request-modal">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">New Request</h4>
-                        <button type="button" class="close request-close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                          <div id="request-error-message" class="hide error-message"></div>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Subject</label>
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">
-                            </div>
-                            <div class="form-group">
-                                <label for="priority">Priority</label>
-                                <select id="priority" class="form-control">
-                                    <option selected value="">Choose...</option>
-                                    <option value="low">Low</option>
-                                    <option value="mediam">Mediam</option>
-                                    <option value="high">High</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Contact number</label>
-                                <input type="text" class="form-control" id="contactNumber" placeholder="contact number" maxlength="10">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Discription</label>
-                                <textarea class="form-control" id="description" rows="3"></textarea>
-                            </div>
-                        </div>
-                      </form>
-                        <!-- Modal footer -->
-                        <div class="request-modal modal-footer">
-                            <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Close">
-                            <input type="submit" class="btn btn-primary add-request-btn" value="Add Request">
-                        </div>
+  </header>
+  <div class="tab-content container" id="myTabContent">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+              aria-selected="true">Home</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+              aria-controls="profile" aria-selected="false">About Us</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+              aria-controls="contact" aria-selected="false">Contact</a>
+      </li>
+    </ul>
+    <div class="tab-pane fade in active" style="min-height: 400px; margin-top: 50px;" id="home" role="tabpanel"
+        aria-labelledby="home-tab">
+        <div class="row">
+            <div class="l-col-widget col-sm-4">
+                <div
+                    style="margin: 0 auto; background-image: url('./images/cjibm8bu000gliifz4is12uor-convert-emails-to-tickets.svg'); background-size: cover; height: 100px; width: 100px;">
+                </div>
+                <div style="text-align: center;">
+                    <h3>Convert emails to tickets</h3>
+                    <p>Automatically convert all emails from your customers to tickets and respond
+                        to them faster.
+                        Never miss another email in the clutter.</p>
                 </div>
             </div>
+            <div class="l-col-widget col-sm-4">
+              <div class="icon-big "
+                  style="margin: 0 auto; background-image: url('./images/cjibm8b7l00h3hufz4lpwonez-benchmark-performance.svg'); background-size: cover; height: 100px; width: 100px;">
+              </div>
+              <div style="text-align: center;">
+                  <h3>Intuitive Reporting</h3>
+                  <p>Use Freshdesk’s built-in reports to track team performance, customer
+                      satisfaction and
+                      identify your biggest bottlenecks.</p>
+              </div>
+            </div>
+            <div class="l-col-widget col-sm-4">
+              <div class="icon-big "
+                  style="margin: 0 auto; background-image: url('./images/cjibm9l6x027qitfzhesld35e-social-support-67.svg'); background-size: cover; height: 100px; width: 100px;">
+              </div>
+              <div style="text-align: center;">
+                  <h3>Social Helpdesk</h3>
+                  <p>Connect with your customers from anywhere. Convert Facebook posts and Tweets
+                      into tickets and
+                      respond to them right from your helpdesk.</p>
+              </div>
+            </div>
         </div>
+        <div class="row">
+          <div class="l-col-widget col-sm-4">
+              <div class="icon-big "
+                  style="margin: 0 auto; background-image: url('./images/cjibm8ayw00bsiifzkj4r5dx3-automate-workflows.svg'); background-size: cover; height: 100px; width: 100px;">
+              </div>
+              <div style="text-align: center;">
+                  <h3>Smart Automations</h3>
+                  <p>Automate the ticket assignment process and say goodbye to repetitive chores.</p>
+              </div>
+          </div>
+          <div class="l-col-widget col-sm-4">
+              <div class="icon-big "
+                  style="margin: 0 auto; background-image: url('./images/cjibm8cu1012biifzoaeiy8u5-integration.svg'); background-size: cover; height: 100px; width: 100px;">
+              </div>
+              <div style="text-align: center;">
+                  <h3>Seamless Integrations</h3>
+                  <p>Integrate everything your support team needs into your helpdesk - from
+                      payment management to
+                      translations and much more</p>
+              </div>
+          </div>
+          <div class="l-col-widget col-sm-4">
+              <div class="icon-big "
+                  style="margin: 0 auto; background-image: url('./images/cjibm9mog02xeiifze63zpdpq-help-customers-help-themselves.svg'); background-size: cover; height: 100px; width: 100px;">
+              </div>
+              <div style="text-align: center;">
+                  <h3>Knowledge base</h3>
+                  <p>Your customers need not wait every time they need a query answered. Help your
+                      customers, help
+                      themselves by setting up a Knowledge base.</p>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" style="min-height: 400px;" id="profile" role="tabpanel"
+        aria-labelledby="profile-tab">
+        <h4 style="font-family: Open-sans; line-height: 27px;">
+                If You Have Questions About Your IT, We Have the Answers
+                We can help you Win with IT if you tell us about your information technology needs. So let's start the discussion! Since 2015, we has been providing businesses, both small and enterprise-class, with effective IT services. With over two decades of experience, we fully understand that your business objectives are unique and custom to your particular business goals. This is why we offer tailored IT solutions aligned with your goals to keep you winning with IT.
 
-    </section>
+                We are focused on give your business a competitive advantage. If you're ready to start the conversation on how we can help you meet and exceed your business IT goals, contact us today.
+        </h4>
+    </div>
+        <div class="tab-pane fade" style="min-height: 400px;" id="contact" role="tabpanel"
+            aria-labelledby="contact-tab">
+            <h1 style="font-family: Open-sans;">Contact Us To Get Started Winning With IT Today!</h1>
+            <h3 style="font-family: Open-sans;">India: Cytel Software, 6th floor, A Wing, Lohia Jain IT Park, Kothrud, pune 411038</h3>
+        </div>
+    </div>
     <footer>
         <div class="footer-copyrights">
-
-            <p class="footer-copyrights-text">Copyright © 2020</p>
-        </div>
+          <p class="footer-copyrights-text">Copyright © 2020</p>
+       </div>
     </footer>
-</body>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Login</h4>
+            <button type="button" class="close login-close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form action="./request.html" role="form">
+            <div class="modal-body">
+              <div id="login-error-message" class="hide error-message"></div>
+              <div class="email form form-field">
+                <input type="email" id="login-email" placeholder="Enter email" autocomplete="email" required />
+              </div>
+              <div class="form-field">
+                <input type="password" id="login-password" placeholder="Enter password" autocomplete="current-password" value="" required />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="submit" class="btn btn-primary login-form" value="Login">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
+    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="success" class="success hide">
+              <h2>Signup successfully! Please do login.</h2>
+          </div>
+          <div id="modal-container">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+              <button type="button" class="close singup-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div id="signup-error-message" class="hide error-message"></div>
+                <div class="form-field">
+                  <input type="text" id="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-field">
+                  <input type="text" id="lastName" placeholder="Last Name" required>
+                </div>
+                <div class="email form form-field">
+                  <input type="email" id="signupemail" placeholder="Email address" autocomplete="email" required>
+                </div>
+                <div class="form-field">
+                  <input type="password" id="signup-password" placeholder="Password" value="" required>
+                </div>
+                <div class="form-field">
+                  <input type="password" id="signup-confirm-password" placeholder="Confirm Password" value="" required>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <input type="submit" class="btn btn-primary singup" value="Sign up">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
 </html>

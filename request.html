@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/request.js"></script>
+    <style type="text/css">
+        .footer-copyrights {
+            background-color: #efefef;
+            text-align: center;
+        }
+    </style>
+</head>
+<script>
+    function setUserName() {
+        var userName = sessionStorage.getItem("firstName") + " " + sessionStorage.getItem("lastName");
+        $("#userName").text(userName);
+    }
+</script>
+
+<body onload="setUserName()">
+    <header>
+            <div style="background-image:url('./images/bg-2.jpg'); min-height: 100px; text-align: center; background-size: cover;">
+                <div>
+                    <h3 style="color: #fff;float: right;padding-right: 10px;;"> Welcome <span style="text-align: right;" id="userName">UserName</span></h3>
+                </div>
+              </div>
+        <section>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li class="active" id="home-tab-li"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                role="tab" aria-controls="home" aria-selected="true">Request</a></li>
+                        <li id="detail-tab-li"><a class="nav-link" id="detail-tab" data-toggle="tab" href="#"
+                            role="tab" aria-controls="detailtab" aria-selected="true">Details Tab</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <button class="btn btn-primary new-request-btn" data-toggle="modal" style="height: 53px;">+New Request</button>
+                    </ul>                   
+                </div>
+            </nav>
+        </section>
+        <div class="tab-pane fade in active" style="min-height: 500px; margin-top: 20px;" id="home" role="tabpanel"
+            aria-labelledby="home-tab">
+            <h3>My Request Details</h3>
+            <table id="Requesttable" class="table table-striped request-table hide">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Created Date</th>
+                        <th>DueBy Date</th>
+                        <th>Requester Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade in active hide"  style="min-height: 500px; margin-top: 10px;" id="detailtab" role="tabpanel"
+        aria-labelledby="detail-tab">
+        <h3>Details</h3>
+        <table id="detailsTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email ID</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                             
+            </tbody>
+        </table>
+    </div>
+    </header>
+    <section>
+        <!-- The Modal -->
+        <div class="modal fade" id="new-request-modal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">New Request</h4>
+                        <button type="button" class="close request-close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                          <div id="request-error-message" class="hide error-message"></div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="priority">Priority</label>
+                                <select id="priority" class="form-control">
+                                    <option selected value="">Choose...</option>
+                                    <option value="low">Low</option>
+                                    <option value="mediam">Mediam</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Contact number</label>
+                                <input type="text" class="form-control" id="contactNumber" placeholder="contact number" maxlength="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Discription</label>
+                                <textarea class="form-control" id="description" rows="3"></textarea>
+                            </div>
+                        </div>
+                      </form>
+                        <!-- Modal footer -->
+                        <div class="request-modal modal-footer">
+                            <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Close">
+                            <input type="submit" class="btn btn-primary add-request-btn" value="Add Request">
+                        </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <div class="footer-copyrights">
+
+            <p class="footer-copyrights-text">Copyright © 2020</p>
+        </div>
+    </footer>
+</body>
+
+</html>

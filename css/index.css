@@ -1,0 +1,56 @@
+.button-margin {
+  margin-top: 10px;
+}
+input {
+   font-size: 16px;
+   height: 38px;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 4px 6px 2px;
+  border: 1px solid #A7A6AB;
+  background-color: #fff;
+}
+.request-modal input {
+  width: 20%;
+}
+.request-modal input.btn-secondary  {
+  border: 1px solid #666;
+}
+.form-field {
+  position: relative;
+  margin-bottom: 15px;
+}
+.modal-dialog .modal-content .modal-footer {
+  border: none;
+  padding-top: 0px;
+}
+.modal-dialog .modal-content .modal-header .modal-title {
+  position: absolute;
+}
+.error-message {
+  color: red;
+  padding-bottom: 10px;
+}
+.success {
+  color: green;
+  padding-bottom: 5px;
+}
+.success h2 {
+  text-align: center;
+}
+.footer-copyrights {
+  background-color: #efefef;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+.full-width {
+  width: 100%;
+}
+h1, h2, h3, h4, h5 h6 {
+  font-family: "Open-sans";
+}
+tr {
+  margin-bottom: 20px;
+}
